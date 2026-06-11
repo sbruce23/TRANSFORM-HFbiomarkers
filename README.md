@@ -1,4 +1,4 @@
-# TRANSFORM-HF Biomarker Study — Analysis Code Repository
+# TRANSFORM-HF Biomarker Study Analysis Code Repository
 
 This repository contains annotated code supporting the analyses, figures, and tables in the manuscript:
 

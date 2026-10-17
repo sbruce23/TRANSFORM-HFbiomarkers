@@ -7,7 +7,7 @@ This repository contains annotated code supporting the analyses, figures, and ta
 
 The manuscript evaluates whether baseline biomarker profiles identify differential biological responses to loop diuretic strategy (torsemide vs. furosemide) in patients discharged after a heart failure hospitalization.
 
-> ⚠️ **Note:** Individual-level participant data are not included in this repository. The code is provided to document the analytic workflow and support adaptation of these methods in future work.
+> ⚠️ **Note:** Participant-level data files and the editable Quarto source are not included in this repository. The rendered report is provided to document the analytic workflow and support adaptation of these methods in future work. Input data files referenced by the report are private and are not distributed with it.
 
 ---
 
@@ -30,15 +30,18 @@ A combined inverse probability weight (IPW) — the product of the treatment and
 
 📄 **[`Transform_Analysis_GH.html`](https://sbruce23.github.io/TRANSFORM-HFbiomarkers/Transform_Analysis_GH.html)**
 
-This rendered R Markdown document reproduces all tables and figures from the manuscript, including:
+This rendered HTML analysis report documents the calculations, tables, and figures supporting the manuscript, including:
 
 - **Baseline characteristics** (Table 1, unweighted; Supplemental Table 2, IPW-weighted)
-- **IPW-weighted linear regression models** for 90-day change in NT-proBNP (log₂ scale) — with biomarker-by-treatment interaction terms for NT-proBNP, GDF-15, hs-CRP, hs-cTnT, hs-cTnI, Cystatin C, and Creatinine (Table 2, Figure 2)
-- **IPW-weighted logistic regression models** for the probability of achieving NT-proBNP < 1,000 pg/mL at 90 days — with estimated odds ratios at the 25th and 75th percentile of each baseline biomarker (Table 3, Figure 3)
-- **Bootstrap confidence intervals** for predicted outcomes at the 25th and 75th percentiles of each baseline biomarker
+- **IPW-weighted linear regression models** for 90-day change in NT-proBNP (log₂ scale) — with biomarker-by-treatment interaction terms for NT-proBNP, GDF-15, hs-CRP, hs-cTnT, hs-cTnI, Cystatin C, and Creatinine; estimated changes are shown at the 25th, 50th, and 75th percentiles (Table 2, Figure 2)
+- **IPW-weighted logistic regression models** for the probability of achieving NT-proBNP < 1,000 pg/mL at 90 days — with estimated odds ratios at the 25th, 50th, and 75th percentiles of each baseline biomarker (Table 3, Figure 3)
+- **Model-based 95% confidence intervals** for predicted changes and odds ratios at the 25th, 50th, and 75th percentiles of each baseline biomarker
+- **Unadjusted and Benjamini–Hochberg (BH)-adjusted interaction p-values**, using seven biomarker-by-treatment tests separately for the continuous outcome (Table 2), binary outcome (Table 3), and randomized-cohort sensitivity analysis (Supplemental Table 3)
+- **Randomized-cohort sensitivity analysis** with the same three percentiles and median markers (Supplemental Table 3 and Supplemental Figure 2)
+- **25th-, 50th-, and 75th-percentile markers** in Figures 2 and 3 and Supplemental Figure 2
 - **Causal tree (CART) analyses** identifying biomarker-defined subgroups with heterogeneous diuretic treatment effects (Figure 4)
 
-The analysis is implemented in **R**, using IPW-weighted regression, bootstrap resampling, and causal tree methods.
+The analysis is implemented in **R**, using IPW-weighted regression, bootstrap resampling, and causal tree methods. Bootstrap intervals for biomarker percentiles are distinct from the model-based confidence intervals for predicted outcomes.
 
 ---
 
